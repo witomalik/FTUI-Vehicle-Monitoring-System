@@ -1,14 +1,63 @@
 <ion-header>
   <ion-toolbar>
     <ion-title>
-      Ionic Blank
+      FTUI Vehicle Monitor
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+<ion-card>
+    <ion-card-header>
+      <ion-card-title><ion-icon name="flashlight"></ion-icon>   Kecerahan Lampu</ion-card-title>
+    </ion-card-header>
+  
+    <ion-card-content>
+      
+      <ion-progress-bar [value]="( (manpro | async)?.light )/100"></ion-progress-bar>
+      <br>
+      <h1 align="center">{{ (manpro | async)?.light }} % </h1>
+      <h3 align="center">Status : {{ (manpro | async)?.command_light }}</h3>
+
+    </ion-card-content>
+</ion-card>
+
+<ion-card>
+    <ion-card-header>
+      <ion-card-title><ion-icon name="megaphone"></ion-icon>   Kebisingan Suara</ion-card-title>
+    </ion-card-header>
+  
+    <ion-card-content>
+     
+      
+      <ion-progress-bar [value]="( (manpro | async)?.sound )/100"></ion-progress-bar>
+      <br>
+      <h1 align="center">{{ (manpro | async)?.sound }} % </h1>
+      <h3 align="center">Status : {{ (manpro | async)?.command_sound }}</h3>
+
+    </ion-card-content>
+</ion-card>
+  
+
+
+  <!--
   <div class="ion-padding">
     The world is your oyster.
     <p>If you get lost, the <a target="_blank" rel="noopener" href="https://ionicframework.com/docs/">docs</a> will be your guide.</p>
+
+    <h1>Status lampu = {{ (manpro | async)?.command_light }}</h1>
+    <h1>Kecerahan {{ (manpro | async)?.light }} % </h1>
+    <h1>Status lampu = {{ (manpro | async)?.command_sound }}</h1>
+    <h1>Kebisingan {{ (manpro | async)?.sound }} % </h1>
+    
+  <input type="text" #newcl placeholder="Command Light" />   <button (click)="save(newcl.value, newcs.value, newlight.value, newsound.value)">Set CL</button><br>
+  <input type="text" #newcs placeholder="Command Sound" />   <button (click)="save(newcs.value)">Set class</button><br>
+  <input type="text" #newlight placeholder="Light" />   <button (click)="save(newlight.value)">Set Light</button><br>
+  <input type="text" #newsound placeholder="Sound" />   <button (click)="save(newsound.value)">Set Sound</button><br>
+  <br>
+<button (click)="delete()">Delete</button>
+
+  
   </div>
+  -->
 </ion-content>
